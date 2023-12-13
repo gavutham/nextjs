@@ -9,7 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "latest",
+    "mongoose": "^6.12.3",
+    "next": "^14.0.4",
     "react": "latest",
     "react-dom": "latest",
     "swr": "^2.2.4"
