@@ -1,20 +1,30 @@
 import mongoose from "mongoose";
 
-const { Schema } = mongoose;
+const { Schema, models } = mongoose;
 
-const userSchema = new Schema(
+const postSchema = new Schema(
   {
-    name: {
+    title: {
       type: String,
-      unique: true,
       required: true,
     },
-    email: {
+    desc: {
       type: String,
-      unique: true,
       required: true,
     },
-    password: {
+    img: {
+      type: String,
+      required: true,
+    },
+    content: {
+      type: String,
+      required: true,
+    },
+    content: {
+      type: String,
+      required: true,
+    },
+    username: {
       type: String,
       required: true,
     },
@@ -22,4 +32,4 @@ const userSchema = new Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("NxtUsers", userSchema);
+export default models.NxtPost || mongoose.model("NxtPost", postSchema);
