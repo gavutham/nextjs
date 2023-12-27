@@ -1,9 +1,16 @@
 "use client";
 
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import styles from "./page.module.css";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
+  const session = useSession();
+  const router = useRouter();
+
+  if (session.status === "loading") return <p>Loading...</p>;
+  if (session.status === "authenticated") router.push("/dashboard");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const email = e.target[0].value;
