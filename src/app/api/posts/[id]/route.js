@@ -14,3 +14,16 @@ export const GET = async (request, { params }) => {
     return new NextResponse("Databse Error", { status: 500 });
   }
 };
+
+export const DELETE = async (request, { params }) => {
+  const { id } = params;
+  try {
+    await connect();
+
+    const posts = await Post.findByIdAndDelete(id);
+
+    return new NextResponse("Post has been deleted", { status: 200 });
+  } catch (error) {
+    return new NextResponse("Databse Error", { status: 500 });
+  }
+};
